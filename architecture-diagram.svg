@@ -1,0 +1,90 @@
+<svg viewBox="0 0 1000 640" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#5C6660"/>
+    </marker>
+  </defs>
+
+  <rect width="1000" height="640" fill="#F5F3EE"/>
+
+  <text x="40" y="42" font-family="Georgia, serif" font-size="24" font-weight="700" fill="#1C2321">Revenue Recovery Agent — Architecture</text>
+  <line x1="40" y1="56" x2="960" y2="56" stroke="#1C2321" stroke-width="2"/>
+
+  <!-- Razorpay -->
+  <rect x="40" y="90" width="180" height="60" rx="3" fill="#FFFFFF" stroke="#B8B09C"/>
+  <text x="130" y="115" text-anchor="middle" font-size="11" fill="#5C6660" letter-spacing="1">TEST MODE</text>
+  <text x="130" y="135" text-anchor="middle" font-size="15" font-weight="600" fill="#1C2321">Razorpay</text>
+
+  <!-- Webhook receiver -->
+  <rect x="280" y="90" width="200" height="60" rx="3" fill="#FFFFFF" stroke="#B8B09C"/>
+  <text x="380" y="115" text-anchor="middle" font-size="11" fill="#5C6660" letter-spacing="1">EXPRESS</text>
+  <text x="380" y="135" text-anchor="middle" font-size="15" font-weight="600" fill="#1C2321">Webhook Receiver</text>
+  <line x1="220" y1="120" x2="278" y2="120" stroke="#5C6660" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Abandonment poller -->
+  <rect x="280" y="170" width="200" height="50" rx="3" fill="#FFFFFF" stroke="#B8B09C" stroke-dasharray="4,3"/>
+  <text x="380" y="200" text-anchor="middle" font-size="13" fill="#1C2321">Abandonment Poller</text>
+  <text x="130" y="205" text-anchor="middle" font-size="11" fill="#5C6660">(no webhook fires on</text>
+  <text x="130" y="218" text-anchor="middle" font-size="11" fill="#5C6660">inaction — we poll)</text>
+  <line x1="130" y1="150" x2="130" y2="185" stroke="#5C6660" stroke-width="1.5"/>
+  <line x1="130" y1="185" x2="278" y2="195" stroke="#5C6660" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Supabase (events table) -->
+  <rect x="560" y="90" width="200" height="130" rx="3" fill="#FFFFFF" stroke="#B8B09C"/>
+  <text x="660" y="115" text-anchor="middle" font-size="11" fill="#5C6660" letter-spacing="1">SUPABASE / POSTGRES</text>
+  <text x="660" y="138" text-anchor="middle" font-size="15" font-weight="600" fill="#1C2321">events</text>
+  <text x="660" y="160" text-anchor="middle" font-size="15" font-weight="600" fill="#1C2321">event_actions</text>
+  <text x="660" y="200" text-anchor="middle" font-size="11" fill="#5C6660">(audit trail — every</text>
+  <text x="660" y="213" text-anchor="middle" font-size="11" fill="#5C6660">action, in order)</text>
+  <line x1="480" y1="120" x2="558" y2="130" stroke="#5C6660" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Gemini diagnosis -->
+  <rect x="280" y="280" width="200" height="60" rx="3" fill="#E6F0FA" stroke="#2B6CB0"/>
+  <text x="380" y="303" text-anchor="middle" font-size="11" fill="#2B6CB0" letter-spacing="1">GEMINI (AI)</text>
+  <text x="380" y="323" text-anchor="middle" font-size="15" font-weight="600" fill="#1C2321">Diagnosis Engine</text>
+  <line x1="660" y1="220" x2="660" y2="310" stroke="#5C6660" stroke-width="1.5"/>
+  <line x1="660" y1="310" x2="482" y2="310" stroke="#5C6660" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Guardrail layer -->
+  <rect x="280" y="380" width="200" height="70" rx="3" fill="#FBF3DE" stroke="#B8860B"/>
+  <text x="380" y="402" text-anchor="middle" font-size="11" fill="#B8860B" letter-spacing="1">DETERMINISTIC — NO AI</text>
+  <text x="380" y="422" text-anchor="middle" font-size="15" font-weight="600" fill="#1C2321">Guardrail Layer</text>
+  <text x="380" y="440" text-anchor="middle" font-size="10.5" fill="#5C6660">max 3 attempts · 4h cooldown · opt-out</text>
+  <line x1="380" y1="340" x2="380" y2="378" stroke="#5C6660" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Execution engine -->
+  <rect x="280" y="480" width="200" height="60" rx="3" fill="#FFFFFF" stroke="#B8B09C"/>
+  <text x="380" y="503" text-anchor="middle" font-size="11" fill="#5C6660" letter-spacing="1">SIMULATED / TWILIO / RESEND</text>
+  <text x="380" y="523" text-anchor="middle" font-size="15" font-weight="600" fill="#1C2321">Execution Engine</text>
+  <line x1="380" y1="450" x2="380" y2="478" stroke="#5C6660" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Recovery confirmation -->
+  <rect x="560" y="480" width="200" height="60" rx="3" fill="#E4F3EA" stroke="#1E7A4C"/>
+  <text x="660" y="503" text-anchor="middle" font-size="11" fill="#1E7A4C" letter-spacing="1">ON PAYMENT SUCCESS</text>
+  <text x="660" y="523" text-anchor="middle" font-size="15" font-weight="600" fill="#1C2321">Recovery Confirm</text>
+  <line x1="480" y1="510" x2="558" y2="510" stroke="#5C6660" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="660" y1="480" x2="660" y2="220" stroke="#5C6660" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="820" y="350" text-anchor="middle" font-size="10.5" fill="#5C6660" transform="rotate(90 820 350)">writes back to events table</text>
+
+  <!-- Dashboard -->
+  <rect x="800" y="380" width="160" height="160" rx="3" fill="#FFFFFF" stroke="#1C2321" stroke-width="1.5"/>
+  <text x="880" y="405" text-anchor="middle" font-size="11" fill="#5C6660" letter-spacing="1">REACT</text>
+  <text x="880" y="428" text-anchor="middle" font-size="15" font-weight="600" fill="#1C2321">Dashboard</text>
+  <text x="880" y="455" text-anchor="middle" font-size="11" fill="#5C6660">Metrics</text>
+  <text x="880" y="475" text-anchor="middle" font-size="11" fill="#5C6660">Event Feed</text>
+  <text x="880" y="495" text-anchor="middle" font-size="11" fill="#5C6660">Exception List</text>
+  <text x="880" y="515" text-anchor="middle" font-size="11" fill="#5C6660">Audit Trail</text>
+  <line x1="760" y1="130" x2="880" y2="130" stroke="#5C6660" stroke-width="1.5"/>
+  <line x1="880" y1="130" x2="880" y2="378" stroke="#5C6660" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="900" y="250" font-size="10.5" fill="#5C6660">reads via</text>
+  <text x="900" y="263" font-size="10.5" fill="#5C6660">GET /api/events</text>
+
+  <!-- Legend -->
+  <line x1="40" y1="580" x2="960" y2="580" stroke="#DAD5C8" stroke-width="1"/>
+  <rect x="40" y="600" width="14" height="14" fill="#E6F0FA" stroke="#2B6CB0"/>
+  <text x="60" y="611" font-size="11" fill="#5C6660">AI-driven step</text>
+  <rect x="200" y="600" width="14" height="14" fill="#FBF3DE" stroke="#B8860B"/>
+  <text x="220" y="611" font-size="11" fill="#5C6660">Deterministic guardrail (no AI)</text>
+  <rect x="460" y="600" width="14" height="14" fill="#E4F3EA" stroke="#1E7A4C"/>
+  <text x="480" y="611" font-size="11" fill="#5C6660">Closes the recovery loop</text>
+</svg>

@@ -1,0 +1,16 @@
+node_modules/
+backend/.env
+frontend/.env
+.env
+*.log
+.DS_Store
+
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/kirutheen/revenue-recovery-agent.git 
+git push -u origin main
+
+git config --global user.name "kirutheen"
+git config --global user.email "2k24aids046@kiot.ac.in"

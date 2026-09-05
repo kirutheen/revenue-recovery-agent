@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* Color — paper ledger palette */
+  --paper: #F5F3EE;
+  --paper-raised: #FFFFFF;
+  --ink: #1C2321;
+  --ink-soft: #5C6660;
+  --line: #DAD5C8;
+  --line-strong: #B8B09C;
+
+  /* Status colors — map to real financial states, not generic UI colors */
+  --status-pending: #B8860B;
+  --status-pending-bg: #FBF3DE;
+  --status-diagnosed: #2B6CB0;
+  --status-diagnosed-bg: #E6F0FA;
+  --status-recovered: #1E7A4C;
+  --status-recovered-bg: #E4F3EA;
+  --status-exhausted: #A03A2C;
+  --status-exhausted-bg: #FBE9E5;
+  --status-escalated: #6B5B95;
+  --status-escalated-bg: #ECE8F5;
+
+  --source-live: #1E7A4C;
+  --source-live-bg: #E4F3EA;
+  --source-demo: #5C6660;
+  --source-demo-bg: #E9E7DF;
+
+  /* Type */
+  --font-display: 'Source Serif 4', Georgia, serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SF Mono', monospace;
+
+  --radius: 3px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--status-diagnosed);
+  outline-offset: 2px;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
